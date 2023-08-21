@@ -1,0 +1,28 @@
+.wrapper-image {
+  width: 100%;
+}
+.img {
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.thumb-img {
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  height: 315px;
+}
+
+.disabled {
+  cursor: default !important;
+}
+.small {
+  height: 150px !important;
+}
+
+.errorMessage {
+  font-size: 12px;
+  margin-left: 12px;
+}

@@ -1,0 +1,48 @@
+<div class="wrapper-image">
+  <ng-container *ngIf="!isBanner">
+    <img
+      class="img"
+      [src]="image ? image : defaultImage"
+      [ngClass]="{
+        'banner-img': isBanner,
+        'thumb-img': !isBanner,
+        disabled: isDisabled,
+        small: small
+      }"
+      (click)="clickInput()"
+    />
+  </ng-container>
+  <ng-container *ngIf="isBanner">
+    <img
+      class="img"
+      [src]="image ? image : defaultImageBanner"
+      [ngClass]="{
+        'banner-img': isBanner,
+        'thumb-img': !isBanner,
+        disabled: isDisabled,
+        small: small
+      }"
+      (click)="clickInput()"
+    />
+  </ng-container>
+  <input
+    #inputField
+    type="file"
+    [id]="formControlName"
+    hidden="true"
+    accept=".png, .jpeg, .jpg"
+    autocomplete="off"
+    style="display: none"
+  />
+  <mat-error
+    *ngIf="
+      !formGroup?.get(formControlName)?.value &&
+      formGroup?.get(formControlName)?.touched &&
+      formGroup.touched
+    "
+  >
+    <ng-container *ngIf="formGroup.get(formControlName)?.invalid">
+      {{ getErrorMessage() }}
+    </ng-container>
+  </mat-error>
+</div>
